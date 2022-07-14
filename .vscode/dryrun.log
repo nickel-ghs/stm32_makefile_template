@@ -1,0 +1,10 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/ztd/Desktop/share/test/stm32/test'
+arm-none-eabi-gcc -c core/startup_stm32f103zetx.S -mthumb -mcpu=cortex-m3  -g -o ./obj/startup_stm32f103zetx.o
+ 
+arm-none-eabi-gcc -c user/main.c user/system_stm32f10x.c core/core_cm3.c stm32f10x_fwlib/src/misc.c stm32f10x_fwlib/src/stm32f10x_adc.c stm32f10x_fwlib/src/stm32f10x_bkp.c stm32f10x_fwlib/src/stm32f10x_can.c stm32f10x_fwlib/src/stm32f10x_cec.c stm32f10x_fwlib/src/stm32f10x_crc.c stm32f10x_fwlib/src/stm32f10x_dac.c stm32f10x_fwlib/src/stm32f10x_dbgmcu.c stm32f10x_fwlib/src/stm32f10x_exti.c stm32f10x_fwlib/src/stm32f10x_flash.c stm32f10x_fwlib/src/stm32f10x_fsmc.c stm32f10x_fwlib/src/stm32f10x_gpio.c stm32f10x_fwlib/src/stm32f10x_i2c.c stm32f10x_fwlib/src/stm32f10x_iwdg.c stm32f10x_fwlib/src/stm32f10x_pwr.c stm32f10x_fwlib/src/stm32f10x_rcc.c stm32f10x_fwlib/src/stm32f10x_rtc.c stm32f10x_fwlib/src/stm32f10x_sdio.c stm32f10x_fwlib/src/stm32f10x_spi.c stm32f10x_fwlib/src/stm32f10x_tim.c stm32f10x_fwlib/src/stm32f10x_usart.c stm32f10x_fwlib/src/stm32f10x_wwdg.c system/delay/delay.c system/sys/sys.c hardware/led/led.c system/usart/usart.c -Iuser -Icore -Istm32f10x_fwlib/inc -Isystem/delay -Isystem/sys -Isystem/usart -Ihardware/led  -mthumb -mcpu=cortex-m3 -T user/stm32_flash.ld -Wl,-cref,-u,Reset_Handler -Wl,-Map=./obj/app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -D STM32F10X_HD -fdata-sections -ffunction-sections  # -g -o ./obj/c_sources.o
+arm-none-eabi-gcc ./obj/*.o *.o -Iuser -Icore -Istm32f10x_fwlib/inc -Isystem/delay -Isystem/sys -Isystem/usart -Ihardware/led  -mthumb -mcpu=cortex-m3 -T user/stm32_flash.ld -Wl,-cref,-u,Reset_Handler -Wl,-Map=./obj/app.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -D STM32F10X_HD -fdata-sections -ffunction-sections  -g -o ./obj/app.elf
+make bin
+make hex
+make: Leaving directory '/home/ztd/Desktop/share/test/stm32/test'
+ 

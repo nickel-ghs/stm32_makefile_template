@@ -1,0 +1,7 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "stm32f10x.h": "c",
+        "led.h": "c"
+    }
+}
